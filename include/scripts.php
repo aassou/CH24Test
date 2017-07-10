@@ -19,6 +19,10 @@
 <script src="../assets/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
 <script src="../assets/bootstrap-daterangepicker/date.js" type="text/javascript"></script>
 <script src="../assets/jquery-validation/jquery.validate.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script> 
+<script type="text/javascript" src="../assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="../assets/jquery-tags-input/jquery.tagsinput.min.js"></script>
 <!-- ie8 fixes -->
 <!--[if lt IE 9]>
 <script src="../assets/js/excanvas.js"></script>

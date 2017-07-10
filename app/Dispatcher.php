@@ -10,9 +10,9 @@ if ( isset($_POST['pageNumber']) ) { $pageNumber = "?p=".htmlentities($_POST['pa
 //Components Porcessing
 //Step 1: Generate components names
 $component = ucfirst($sourceName);
-$componentController = ucfirst($component)."ActionController";
+$componentControllerName = ucfirst($component)."ActionController";
 //Step 2 : Create new components
-$componentController = new AppController($sourceName);
+$componentController = new $componentControllerName($sourceName);
 $componentController->$action($_POST);
 $source = $componentController->source();
 //Step 3 : Send response

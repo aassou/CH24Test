@@ -1,5 +1,5 @@
 <meta charset="UTF-8" />
-<title>AmazighAssurances - Management Application</title>
+<title>CH24 Blog</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <meta content="" name="description" />
 <meta content="" name="author" />
@@ -18,4 +18,5 @@
 <link href="../assets/glyphicons/css/glyphicons.css" rel="stylesheet">
 <link href="../assets/glyphicons_halflings/css/halflings.css" rel="stylesheet">
 <link href="../assets/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
 <link href="../favicon.ico" rel="shortcut icon" />
