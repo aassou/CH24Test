@@ -1,10 +1,7 @@
 <?php
 require('../app/classLoad.php');
 session_start();
-//create Controller
-$entryActionController = new EntryActionController('entry');
-//get objects
-$entries = $entryActionController->getAll();
+if ( isset($_SESSION['userCH24Test']) ){
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -23,7 +20,7 @@ $entries = $entryActionController->getAll();
                     <div class="row-fluid">
                         <div class="span12">
                             <h3 class="page-title">
-                                Home <small></small>
+                                Imprint <small>user : <?= $_SESSION['userCH24Test']->login() ?></small>
                             </h3>
                             <ul class="breadcrumb">
                                 <li><i class="icon-home"></i><a href="index.php">Home</a> - </li>
@@ -38,36 +35,14 @@ $entries = $entryActionController->getAll();
                                 } 
                                 ?>
                             </ul>
-                            
-                            <!-- Action's Messages Results : Success or Error -->
-                            <?php if(isset($_SESSION['actionMessage']) and isset($_SESSION['typeMessage'])){ $message = $_SESSION['actionMessage']; $typeMessage = $_SESSION['typeMessage']; ?>
-                            <div class="alert alert-<?= $typeMessage ?>"><button class="close" data-dismiss="alert"></button><?= $message ?></div>
-                            <?php } unset($_SESSION['actionMessage']); unset($_SESSION['typeMessage']); ?>
-                            <!-- Action's Messages Results : Success or Error -->
-                            
-                            <div class="portlet">
-                                <div class="portlet-title line">
-                                </div>
-                                <div class="portlet-body" id="chats">
-                                    <div class="scroller" data-height="343px" data-always-visible="1" data-rail-visible1="1">
-                                        <ul class="chats">
-                                            <?php foreach($entries as $entry){ ?>
-                                            <li class="in">
-                                                <div class="message">
-                                                    <span class="arrow"></span>
-                                                    <span class="datetime"><h3><?= date('d.m.Y', strtotime($entry->created())) ?> : <a href="entry-details.php?id=<?= $entry->id() ?>"><?= $entry->title() ?></a></h3></span>
-                                                    <span class="body">
-                                                    <?= $entryActionController->wrapString(html_entity_decode($entry->content()), "...", 1000) ?>
-                                                    </span>
-                                                    <a class="name"><?= $entry->authore() ?></a>
-                                                </div>
-                                            </li>
-                                            <?php } ?>    
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                            <h3>User Data</h3>
+                            <ul class="unstyled span10">
+                                <li><strong>Login:</strong> <?= $_SESSION['userCH24Test']->login() ?></li>
+                                <li><strong>Fullname:</strong> <?= $_SESSION['userCH24Test']->fullname() ?></li>
+                                <li><strong>street:</strong> <?= $_SESSION['userCH24Test']->street() ?></li>
+                                <li><strong>Postcode:</strong> <?= $_SESSION['userCH24Test']->postcode() ?></li>
+                                <li><strong>Place:</strong> <?= $_SESSION['userCH24Test']->place() ?></li>
+                            </ul>
                             <!-- login moal begin -->
                             <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-hidden="false" >
                                 <div class="modal-header">
@@ -111,3 +86,9 @@ $entries = $entryActionController->getAll();
         <?php include('../include/scripts.php'); ?>     
     </body>
 </html>
+<?php
+}
+else{
+    header('Location:index.php');    
+}
+?>

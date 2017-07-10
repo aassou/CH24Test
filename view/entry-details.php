@@ -52,7 +52,7 @@ $comments = $commentActionController->getAllByIdEntry($idEntry);
                                 <div class="portlet-title line">
                                 </div>
                                 <div class="portlet-body">
-                                    <h1><?= $entry->title() ?></h1>
+                                    <h1><?= $entry->title() ?></h1><?php if (isset($_SESSION['userCH24Test']) and $entry->idUser() === $_SESSION['userCH24Test']->id()){ ?><a href="entry-edit.php">Edit</a>|<a href="#delete" data-toggle="modal">Delete</a><?php } ?>
                                     <?= html_entity_decode($entry->content()) ?>
                                 </div>
                                 <hr>
@@ -113,6 +113,40 @@ $comments = $commentActionController->getAllByIdEntry($idEntry);
                                     </div>
                                 </form>                 
                             </div>
+                                                        <!-- login moal begin -->
+                            <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-hidden="false" >
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                    <h3>Login</h3>
+                                </div>
+                                <form class="form-horizontal" action="../app/Dispatcher.php" method="post">
+                                    <div class="modal-body">
+                                        <div class="control-group">
+                                            <label class="control-label">login</label>
+                                            <div class="controls">
+                                                <input required="required" type="text" name="login" />
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">password</label>
+                                            <div class="controls">
+                                                <input required="required" type="password" name="password" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input type="hidden" name="action" value="login" />
+                                                <input type="hidden" name="source" value="user" />    
+                                                <button type="submit" class="btn green" aria-hidden="true">Ok</button>
+                                                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>    
+                            <!-- login modal end -->
                         </div>
                     </div>
                 </div>

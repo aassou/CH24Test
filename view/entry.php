@@ -53,6 +53,7 @@ if ( isset($_SESSION['userCH24Test']) ) {
                             <?php } unset($_SESSION['actionMessage']); unset($_SESSION['typeMessage']); ?>
                             <!-- Action's Messages Results : Success or Error -->
                             
+                            
                             <div class="portlet box light-grey">
                                 <div class="portlet-title">
                                     <h4>Add New Entry</h4>
@@ -92,6 +93,7 @@ if ( isset($_SESSION['userCH24Test']) ) {
                                     </form>                 
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -105,6 +107,6 @@ if ( isset($_SESSION['userCH24Test']) ) {
 <?php
 }
 else{
-    header('Location:../index.php');    
+    header('Location:index.php');    
 }
 ?>

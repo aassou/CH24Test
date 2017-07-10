@@ -31,7 +31,9 @@ class CommentActionController {
     //actions
     public function add($comment){
         $idEntry = htmlentities($comment['idEntry']);
-        if( !empty($comment['name']) and !empty($comment['remark']) and filter_var($comment['email'], FILTER_VALIDATE_EMAIL) ){
+        if( !empty($comment['name']) and !empty($comment['remark']) 
+            and filter_var($comment['email'], FILTER_VALIDATE_EMAIL) 
+            and filter_var($comment['url'], FILTER_VALIDATE_URL)){
 			$name = htmlentities($comment['name']);
 			$email = htmlentities($comment['email']);
 			$url = htmlentities($comment['url']);

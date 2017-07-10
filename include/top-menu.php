@@ -11,6 +11,8 @@
 				<i class="icon-user"></i>
 				</a>
 				<ul class="dropdown-menu">
+				    <li><a href="imprint.php"><i class="icon-user"></i>&nbsp;<?= ucfirst($_SESSION['userCH24Test']->login()); ?></a></li>
+                    <li class="divider"></li>
 					<li><a href="logout.php"><i class="icon-key"></i>&nbsp;Déconnexion</a></li>
 				</ul>
 			</li>
