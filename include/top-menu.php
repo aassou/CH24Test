@@ -40,7 +40,7 @@
 				<i class="icon-user"></i>
 				</a>
 				<ul class="dropdown-menu">
-					<li><a href="user-profil.php"><i class="icon-user"></i>&nbsp;<?= ucfirst($_SESSION['userAxaAmazigh']->login()); ?></a></li>
+					<li><a href="user-profil.php"><i class="icon-user"></i>&nbsp;<?= 'Username' ?></a></li>
 					<li class="divider"></li>
 					<li><a href="logout.php"><i class="icon-key"></i>&nbsp;Déconnexion</a></li>
 				</ul>
