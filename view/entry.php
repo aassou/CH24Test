@@ -47,9 +47,12 @@ if ( isset($_SESSION['userCH24Test']) ) {
                     </div>
                     <div class="row-fluid">
                         <div class="span12">
+                            <!-- Action's Messages Results : Success or Error -->
                             <?php if(isset($_SESSION['actionMessage']) and isset($_SESSION['typeMessage'])){ $message = $_SESSION['actionMessage']; $typeMessage = $_SESSION['typeMessage']; ?>
                             <div class="alert alert-<?= $typeMessage ?>"><button class="close" data-dismiss="alert"></button><?= $message ?></div>
                             <?php } unset($_SESSION['actionMessage']); unset($_SESSION['typeMessage']); ?>
+                            <!-- Action's Messages Results : Success or Error -->
+                            
                             <div class="portlet box light-grey">
                                 <div class="portlet-title">
                                     <h4>Add New Entry</h4>
@@ -97,21 +100,6 @@ if ( isset($_SESSION['userCH24Test']) ) {
         <?php include('../include/footer.php'); ?>
         <?php include('../include/scripts.php'); ?>       
         <script>jQuery(document).ready( function(){ App.setPage("table_managed"); App.init(); } );</script>
-        <script>
-        jQuery(document).ready( function(){ App.setPage("table_managed"); App.init(); } );
-        $("#automobile-add-part-1").validate({
-             rules:{
-               title: {
-                   required: true
-               },
-               content: {
-                   required: true
-               }
-             },
-             errorClass: "error-class",
-             validClass: "valid-class"
-        });
-        </script>
     </body>
 </html>
 <?php

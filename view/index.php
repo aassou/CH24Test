@@ -38,6 +38,13 @@ $entries = $entryActionController->getAll();
                                 } 
                                 ?>
                             </ul>
+                            
+                            <!-- Action's Messages Results : Success or Error -->
+                            <?php if(isset($_SESSION['actionMessage']) and isset($_SESSION['typeMessage'])){ $message = $_SESSION['actionMessage']; $typeMessage = $_SESSION['typeMessage']; ?>
+                            <div class="alert alert-<?= $typeMessage ?>"><button class="close" data-dismiss="alert"></button><?= $message ?></div>
+                            <?php } unset($_SESSION['actionMessage']); unset($_SESSION['typeMessage']); ?>
+                            <!-- Action's Messages Results : Success or Error -->
+                            
                             <div class="portlet">
                                 <div class="portlet-title line">
                                 </div>
@@ -48,7 +55,7 @@ $entries = $entryActionController->getAll();
                                             <li class="in">
                                                 <div class="message">
                                                     <span class="arrow"></span>
-                                                    <span class="datetime"><h3><?= date('d.m.Y', strtotime($entry->created())) ?> : <?= $entry->title() ?></h3></span>
+                                                    <span class="datetime"><h3><?= date('d.m.Y', strtotime($entry->created())) ?> : <a href="entry-details.php?id=<?= $entry->id() ?>"><?= $entry->title() ?></a></h3></span>
                                                     <span class="body">
                                                     <?= $entryActionController->wrapString(html_entity_decode($entry->content()), "...", 1000) ?>
                                                     </span>
@@ -60,11 +67,6 @@ $entries = $entryActionController->getAll();
                                     </div>
                                 </div>
                             </div>
-                            <!-- Action's Messages Results : Success or Error -->
-                            <?php if(isset($_SESSION['actionMessage']) and isset($_SESSION['typeMessage'])){ $message = $_SESSION['actionMessage']; $typeMessage = $_SESSION['typeMessage']; ?>
-                            <div class="alert alert-<?= $typeMessage ?>"><button class="close" data-dismiss="alert"></button><?= $message ?></div>
-                            <?php } unset($_SESSION['actionMessage']); unset($_SESSION['typeMessage']); ?>
-                            <!-- Action's Messages Results : Success or Error -->
                             
                             <!-- login moal begin -->
                             <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-hidden="false" >
