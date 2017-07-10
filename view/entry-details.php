@@ -52,7 +52,7 @@ $comments = $commentActionController->getAllByIdEntry($idEntry);
                                 <div class="portlet-title line">
                                 </div>
                                 <div class="portlet-body">
-                                    <h1><?= $entry->title() ?></h1><?php if (isset($_SESSION['userCH24Test']) and $entry->idUser() === $_SESSION['userCH24Test']->id()){ ?><a href="entry-edit.php">Edit</a>|<a href="#delete" data-toggle="modal">Delete</a><?php } ?>
+                                    <h1><?= $entry->title() ?></h1><?php if (isset($_SESSION['userCH24Test']) and $entry->idUser() === $_SESSION['userCH24Test']->id()){ ?><a href="#">Edit</a>|<a href="#delete" data-toggle="modal">Delete</a><?php } ?>
                                     <?= html_entity_decode($entry->content()) ?>
                                 </div>
                                 <hr>
