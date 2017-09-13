@@ -32,7 +32,7 @@
             $pdf = new HTML2PDF('P', 'A4', 'fr');
             $pdf->pdf->SetDisplayMode('fullpage');
             $pdf->writeHTML($content);
-            $fileName = "entry".date('Ymdhi').'.pdf';
+            $fileName = "Entry-Printed-".date('Ymdhi').'.pdf';
             $pdf->Output($fileName);
         }
         catch(HTML2PDF_exception $e){
